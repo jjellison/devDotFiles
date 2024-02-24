@@ -1,5 +1,12 @@
 local plugins = {
   {
+    -- Markdown preview, can be used by doing ":MarkdownPreview"
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
+  {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
   },
