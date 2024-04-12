@@ -109,9 +109,9 @@ local plugins = {
         "codelldb", -- Debugging
         "cpplint",
         "rust-analyzer"
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 return plugins
