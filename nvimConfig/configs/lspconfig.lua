@@ -1,8 +1,8 @@
-local base = require("plugins.configs.lspconfig")
-local on_attach = base.on_attach
-local capabilities = base.capabilities
-
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
+local util = require "lspconfig/util"
+local servers = {"rust-analyzer", "clangd"}
 
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
@@ -14,4 +14,16 @@ lspconfig.clangd.setup {
 }
 
 
-lspconfig.rust_analyzer.setup{}
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"rust"},
+  root_dir = util.root_pattern("Cargo.toml"),
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
+})
