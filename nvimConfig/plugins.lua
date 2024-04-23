@@ -1,5 +1,16 @@
 local plugins = {
   {
+      'tzachar/local-highlight.nvim',
+      config = function()
+        require('local-highlight').setup()
+      end,
+      event = "VeryLazy"
+  },
+  {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
+  },
+  {
     -- Markdown preview, can be used by doing ":MarkdownPreview"
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
