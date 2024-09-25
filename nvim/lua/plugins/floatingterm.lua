@@ -1,10 +1,8 @@
 return {
     'numToStr/FTerm.nvim',
-    opts= function()
-        ft = require('FTerm')
-
-    end
-
+    opts= {
+        blend = 30,
+    }
 	--jkeys = function() 
 --		local builtin = require('vim-floaterm')
 
