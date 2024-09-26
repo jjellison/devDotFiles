@@ -1,1 +1,1 @@
-require('lazy-bootstrap')
+require('config.lazy')
