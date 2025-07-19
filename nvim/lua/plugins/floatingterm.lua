@@ -3,15 +3,20 @@ return {
     opts= {
         blend = 30,
     },
-    vim.keymap.set('n', '<C-b>', '<CMD>lua require("FTerm").toggle()<CR>')
-	--jkeys = function() 
---		local builtin = require('vim-floaterm')
 
-		--return {
-			--{'<leader>ff', builtin.find_files},
-			--{'<leader>fg', builtin.live_grep},
-			--{'<leader>fs', builtin.grep_string},
-			--{'<leader>fc', builtin.current_buffer_fuzzy_find}
-		--}
-	--end
+    init = function()
+        local fterm = require('FTerm')
+        local gitui = fterm:new({
+            ft = 'fterm_gitui', -- You can also override the default filetype, if you want
+            cmd = "gitui",
+            dimensions = {
+                height = 0.9,
+                width = 0.9
+            }
+        })
+
+        -- Use this to toggle gitui in a floating terminal
+        vim.keymap.set('n', '<C-g>', function() gitui:toggle() end)
+        vim.keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
+    end
 }
