@@ -10,10 +10,6 @@ return {
 				local telescope = require('telescope.builtin')
 
 				vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-				vim.keymap.set('n', 'gd', telescope.lsp_definitions, { buffer = bufnr })
-				vim.keymap.set('n', 'gi', telescope.lsp_implementations, { buffer = bufnr })
-				vim.keymap.set('n', 'go', telescope.lsp_type_definitions, { buffer = bufnr })
-				vim.keymap.set('n', 'gr', telescope.lsp_references, { buffer = bufnr })
                 if (client.name == 'clangd') then
                     vim.keymap.set('n', 'gh', function() vim.cmd('ClangdSwitchSourceHeader') end, { buffer = bufnr })
                 end
