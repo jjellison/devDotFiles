@@ -22,3 +22,5 @@
         }
     ```
     like wtf???? Who designed this? They need to be hit. If you want to know the names for those `otherSubGroupSettings` you can go to [rust_analyzer's docs](https://rust-analyzer.github.io/book/configuration.html) where they show you the name of the setting, but a very mediocre job at explaining what the setting is, and provide no example of what it will do/look like.
+
+1. I spent a good 4 hours trying to get inlay hints to work. Turns out, you just need to do `vim.lsp.inlay_hint.enable(true)` which is in the [NeoVim LSP docs](https://neovim.io/doc/user/lsp.html#_lua-module:-vim.lsp.inlay_hint) (I talk about this more in [LSP docs](README.md).
