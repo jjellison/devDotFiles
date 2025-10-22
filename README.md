@@ -4,6 +4,7 @@ This is meant to be used as an anchor point for all the files in this repo. You 
 Before you do anything, clone this repo into `~/.devDotFiles`
 
 ### Neovim installation
+For Neovim specific docs, click [here](docs/nvim/README.md)
 
 1. Try running the `install-nvim-ubuntu.sh`. It probably wont work.
 1. Go to [this page](https://github.com/neovim/neovim/releases) and download the tarball you want for neovim.
