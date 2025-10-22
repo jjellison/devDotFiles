@@ -10,8 +10,26 @@ return {
 					'neo-tree',
 					'DiffviewFiles'
 				}
-			}
-		}
+			},
+            theme = "tomorrow_night",
+        },
+        sections = {
+            lualine_a = {
+                {
+                    'filename',
+                    path = 1,
+                    file_status=true,
+                    symbols = {
+                        readonly = '[readonly]',      -- Text to show when the file is non-modifiable or readonly.
+                    }
+                },
+                {
+                    'buffers',
+                    show_filename_only = true,
+                    mode = 2,
+                }
+            }
+        }
 	},
 	init = function()
 		vim.opt.showmode = false
