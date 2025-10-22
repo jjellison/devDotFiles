@@ -1,64 +1,13 @@
 return {
-	{
-		'VonHeikemen/lsp-zero.nvim',
-		dependencies = { 'nvim-telescope/telescope.nvim', 'neovim/nvim-lspconfig' },
-		branch = 'v3.x',
-		config = function()
-			local lsp = require('lsp-zero')
-			lsp.extend_lspconfig()
-			lsp.on_attach(function(client, bufnr)
-				local telescope = require('telescope.builtin')
-
-				vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-                if (client.name == 'clangd') then
-                    vim.keymap.set('n', 'gh', function() vim.cmd('ClangdSwitchSourceHeader') end, { buffer = bufnr })
-                end
-
-				vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, { buffer = bufnr })
-				vim.keymap.set('x', '<leader>rf', function() vim.lsp.buf.format({async = true}) end, { buffer = bufnr })
-				vim.keymap.set('n', '<leader>rF', function() vim.lsp.buf.format({async = true}) end, { buffer = bufnr })
-				vim.keymap.set('n', '<leader>ra', vim.lsp.buf.code_action, { buffer = bufnr })
-
-				vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { buffer = bufnr })
-				vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = bufnr })
-				vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = bufnr })
-
-                local signs = {
-                    [vim.diagnostic.severity.ERROR] = '󰅚 ',
-                    [vim.diagnostic.severity.WARN] = '󰀪 ',
-                    [vim.diagnostic.severity.INFO] = '󰋽 ',
-                    [vim.diagnostic.severity.HINT] = '󰌶 '
-                }
-
-				vim.diagnostic.config({
-					signs = false,
-					underline = true,
-					update_in_insert = true,
-                    severity_sort = true,
-					virtual_text = {
-						spacing = 1,
-                        prefix = '',
-                        suffix = ' ',
-                        format = function(diagnostic)
-                            return signs[diagnostic.severity] .. ' ' .. diagnostic.message
-                        end
-					},
-					float = {
-						header = false,
-						border = 'solid',
-						focusable = true,
-					}
-				})
-
-				vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'solid' })
-				vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'solid' })
-			end)
-		end
-	},
 	{ 'williamboman/mason.nvim', opts = {} },
+	{ 'hrsh7th/cmp-nvim-lsp', opts = {}},
+	{ 'hrsh7th/cmp-nvim-lsp-signature-help'},
+	{ 'L3MON4D3/LuaSnip', opts = {}},
+	{ 'folke/neodev.nvim', opts = {} },
+	{ 'j-hui/fidget.nvim', opts = {} },
 	{
 		'williamboman/mason-lspconfig.nvim',
-		dependencies = { 'williamboman/mason.nvim', 'VonHeikemen/lsp-zero.nvim' },
+		dependencies = { 'williamboman/mason.nvim', 'folke/neodev.nvim' },
 		opts = function()
 			return {
 				ensure_installed = { 'clangd', 'lua_ls'},
@@ -77,7 +26,6 @@ return {
 			}
 		end
 	},
-	{'neovim/nvim-lspconfig', dependencies = { 'folke/neodev.nvim' }},
     {
         'https://gitlab.com/schrieveslaach/sonarlint.nvim',
         dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig', 'williamboman/mason-lspconfig.nvim' },
@@ -102,8 +50,6 @@ return {
             }
         end
     },
-	{ 'hrsh7th/cmp-nvim-lsp' },
-	{ 'hrsh7th/cmp-nvim-lsp-signature-help' },
 	{
 		'hrsh7th/nvim-cmp',
 		dependencies = { 'VonHeikemen/lsp-zero.nvim', 'L3MON4D3/LuaSnip' },
@@ -177,8 +123,5 @@ return {
                 }
 			}
 		end
-	},
-	{ 'L3MON4D3/LuaSnip' },
-	{ 'folke/neodev.nvim', opts = {} },
-	{ 'j-hui/fidget.nvim', opts = {} }
+	}
 }
