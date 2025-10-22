@@ -25,8 +25,8 @@
 EDIT: Turns out, Catppucin's docs are right (though still a little misleading). You still have to specify one of the 4 above strings, but the way the way they suggest to do this does in fact work. I think I was having so much grief becuase of tmux. So, you can ignore my angry ramblings.
 
 ## Markdown Viewer
-When I first installed this, the `build = function() vim.fn["mkdp#util#isntall"]()` gave some error about how it was an unknown vim function. I came across a [github issue](https://github.com/iamcco/markdown-preview.nvim/issues/7) that told me to just run `:call mkdp#util#install()` from the neovim cli, and that worked.
-1. I have updated that `build - function()` in `nvim/lua/plugins/markdown-preview.lua` but I'm not sure how to get it to call that. I was doing `:Lazy` and trying to manually uninstall/rerun the build cmd, but I couldn't get it to work. I am leaving as is for now because I really don't want to waste my time on this.
+When I first installed this, the `build = function() vim.fn["mkdp#util#install"]()` gave some error about how it was an unknown vim function. I came across a [github issue](https://github.com/iamcco/markdown-preview.nvim/issues/7) that told me to just run `:call mkdp#util#install()` from the neovim cli, and that worked.
+1. I have updated that `build = ` in `nvim/lua/plugins/markdown-preview.lua`, turns out you actually need it to be `":call mkdp#util#install()"` with no quotes. Thanks docs.
 
 ## Intellisense, Autocomplete, clangd (lsp stuffs)
 This is probably going to expand as I add more things to this, so I'm going to preemptively break this up into chunks for future use.
