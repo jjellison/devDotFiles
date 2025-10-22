@@ -28,6 +28,28 @@ vim.g.loaded_netrw = 1
 vim.g.laoded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+-- LSP shit
+vim.lsp.inlay_hint.enable(true)
+vim.lsp.config('rust_analyzer', {
+    settings = {
+        ['rust-analyzer'] = {
+            cachePriming = {
+                enabled = true
+            },
+            inlayHints = {
+                -- Hints at the end of .map/.iter/etc.
+                closureReturnTypeHints = {
+                    enable = "always"
+                },
+                -- Hints for the type coming into a closure
+                parameterHints = {
+                    enable = true
+                }
+            }
+        }
+    }
+})
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -36,7 +58,7 @@ require("lazy").setup({
   },
 
   -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
+  -- Colorscheme that will be used when installing plugins.
   install = { colorscheme = { "catppuccin-frappe" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
