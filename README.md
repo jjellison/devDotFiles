@@ -36,9 +36,9 @@ For Neovim specific docs, click [here](docs/nvim/README.md)
 1. Install GitUi from the cli
 1. symlink your desired file from within `gitui-config` to `~/.config/gitui/theme`
 ``` bash
-ln -s ~/location_of_this_repo/gitui-config/catppuccin-frappe.ron ~/.config/gitui/theme.ron
+ln -s ~/location_of_this_repo/gitui-config/catppuccin-frappe.ron ~/.config/gitui
 ```
 1. Symlink the keybindings for vim
 ``` bash
-ln -s ~/location_of_this_repo/gitui-config/key_bindings.ron ~/.config/gitui/theme.ron
+ln -s ~/location_of_this_repo/gitui-config/key_bindings.ron ~/.config/gitui
 ```
