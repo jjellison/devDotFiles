@@ -10,7 +10,7 @@ return {
 		dependencies = { 'williamboman/mason.nvim', 'folke/neodev.nvim' },
 		opts = function()
 			return {
-				ensure_installed = { 'clangd', 'lua_ls'},
+				ensure_installed = { 'clangd', 'lua_ls', 'rust_analyzer'},
 				handlers = {
 					require('lsp-zero').default_setup,
 					clangd = function()

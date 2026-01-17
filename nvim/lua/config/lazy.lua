@@ -47,7 +47,8 @@ vim.lsp.config('rust_analyzer', {
                 }
             }
         }
-    }
+    },
+    root_markers = {{ "Cargo.toml" }},
 })
 
 -- Setup lazy.nvim

@@ -30,8 +30,6 @@ For Neovim specific docs, click [here](docs/nvim/README.md)
 1. Symlink your .zshrc config `ln -s ~/.devDotFiles/.zshrc ~/.zshrc`
 
 
-
-
 ### GitUI
 1. Install GitUi from the cli
 1. symlink your desired file from within `gitui-config` to `~/.config/gitui/theme`
