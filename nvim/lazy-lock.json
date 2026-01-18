@@ -1,6 +1,6 @@
 {
   "FTerm.nvim": { "branch": "master", "commit": "d1320892cc2ebab472935242d9d992a2c9570180" },
-  "LuaSnip": { "branch": "master", "commit": "3732756842a2f7e0e76a7b0487e9692072857277" },
+  "LuaSnip": { "branch": "master", "commit": "5866f425849e4a1dc0b005550b1b657d1240bab4" },
   "catppuccin": { "branch": "main", "commit": "beaf41a30c26fd7d6c386d383155cbd65dd554cd" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "cbc7b02bb99fae35cb42f514762b89b5126651ef" },
   "cmp-nvim-lsp-signature-help": { "branch": "main", "commit": "fd3e882e56956675c620898bf1ffcf4fcbe7ec84" },
