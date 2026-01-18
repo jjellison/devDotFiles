@@ -22,6 +22,7 @@
 
     You could also just type in the cmd bar `:colorscheme <>`, where `<>` is one of the above defined values. 
     Why Catppuccin/nvim couldn't explain it that way is BEYOND my comprehension.
+EDIT: Turns out, Catppucin's docs are right (though still a little misleading). You still have to specify one of the 4 above strings, but the way the way they suggest to do this does in fact work. I think I was having so much grief becuase of tmux. So, you can ignore my angry ramblings.
 
 ## Markdown Viewer
 When I first installed this, the `build = function() vim.fn["mkdp#util#isntall"]()` gave some error about how it was an unknown vim function. I came across a [github issue](https://github.com/iamcco/markdown-preview.nvim/issues/7) that told me to just run `:call mkdp#util#install()` from the neovim cli, and that worked.
