@@ -17,7 +17,13 @@ return {
             "markdown",
             "markdown_inline",
             "regex",
-            "c_sharp"
+            "c_sharp",
+            "html",
+            "comment",
+            "latex",
+            "typst",
+            "yaml",
+
         },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
