@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Install things specific to dev containers
+./common.sh
+
+ln -sf ~/.devDotFiles/scripts/devbox ~/.local/bin
+
+dnf copr enable wezfurlong/wezterm-nightly
+
+dnf install -y wezterm tslib neovim
+

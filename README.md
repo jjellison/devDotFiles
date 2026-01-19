@@ -3,6 +3,12 @@ This is meant to be used as an anchor point for all the files in this repo. You 
 
 Before you do anything, clone this repo into `~/.devDotFiles`
 
+### OS Specific Installation
+I personally use a few different OS's in my day to day, so I have a few different scripts. Click on one of the following to be brought to the proper docs.
+
+1. [Ubuntu](docs/os-install/ubuntu/README.md)
+1. [fedora](docs/os-install/fedora/README.md)
+
 ### Neovim installation
 For Neovim specific docs, click [here](docs/nvim/README.md)
 
