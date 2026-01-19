@@ -7,6 +7,8 @@ config.leader = {key = 'a', mods = 'CTRL'}
 -- Font and colorscheme
 config.color_scheme = 'Catppuccin Frappe'
 config.font = wezterm.font 'Agave Nerd Font'
+config.window_background_opacity = 0.65
+config.window_decorations = "TITLE | RESIZE"
 
 -- Key Combos
 
@@ -47,4 +49,3 @@ smart_splits.apply_to_config(config, {
 
 
 return config
-

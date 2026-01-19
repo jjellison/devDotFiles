@@ -1,5 +1,10 @@
 return {
     "folke/noice.nvim",
+    dependencies = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        "MunifTanjim/nui.nvim",
+        {"rcarriga/nvim-notify", opts = {background_colour = "#000000"}},
+    },
     event = "VeryLazy",
     opts = {
         lsp = {
@@ -17,11 +22,6 @@ return {
             long_message_to_split = true, -- long messages will be sent to a split
             inc_rename = false, -- enables an input dialog for inc-rename.nvim
             lsp_doc_border = false, -- add a border to hover docs and signature help
-      },
+        },
     },
-    dependencies = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
-    }
 }
