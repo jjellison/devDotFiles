@@ -23,7 +23,8 @@ return {
             "latex",
             "typst",
             "yaml",
-            "bash"
+            "bash",
+            "devicetree",
         },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
