@@ -48,4 +48,13 @@ smart_splits.apply_to_config(config, {
 })
 
 
+config.unix_domains = {
+  {
+    name = "main",
+    socket_path = wezterm.home_dir .. "/.local/share/wezterm/wezterm.sock",
+  },
+}
+
+config.default_gui_startup_args = { "connect", "main" }
+
 return config

@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Enter the 'dev' toolbox with the per-pane WEZTERM_PANE preserved.
 exec toolbox run -c dev env \
-  WEZTERM_PANE="${WEZTERM_PANE-}" \
+  WEZTERM_PANE="${WEZTERM_PANE}" \
   TERM_PROGRAM="${TERM_PROGRAM}" \
   WEZTERM_UNIX_SOCKET="${WEZTERM_UNIX_SOCKET}" \
   zsh
