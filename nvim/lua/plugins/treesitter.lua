@@ -1,10 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    main = "nvim-treesitter.config",
-    opts = {
-        -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-        ensure_installed = { 
+    lazy = false,
+    config = function(plugins, opts)
+        local ts = require("nvim-treesitter")
+        local parsers = { 
             "c", 
             "python",
             "cpp",
@@ -18,38 +18,39 @@ return {
             "markdown_inline",
             "regex",
             "c_sharp",
-            "html",
             "comment",
             "latex",
             "typst",
             "yaml",
             "bash",
             "devicetree",
-        },
+            "svelte",
+            "typescript",
+            "javascript",
+            "html",
+            "css",
+        }
 
-        -- Install parsers synchronously (only applied to `ensure_installed`)
-        sync_install = false,
+        ts.install(parsers)
 
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-        auto_install = true,
+        vim.api.nvim_create_autocmd("FileType", {
+          callback = function(args)
+            local buf = args.buf
+            local ft = vim.bo[buf].filetype
+            if ft == "" then return end
 
-        ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-        -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+            -- If Neovim can map this filetype to a TS language, start highlighting.
+            if not pcall(vim.treesitter.language.get_lang, ft) then return end
+            if not pcall(vim.treesitter.start, buf, ft) then return end
+            print("moving on")
 
-        highlight = {
-            enable = true,
+            -- Enable folds
+            vim.wo[buf].foldmethod = "expr"
+            vim.wo[buf].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
-            -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-            -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-            -- the name of the parser)
-            -- list of language that will be disabled
-            -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-            -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-            -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-            -- Using this option may slow down your editor, and you may see some duplicate highlights.
-            -- Instead of true it can also be a list of languages
-            additional_vim_regex_highlighting = false,
-        },
-    }
+            -- Enable indenting
+            vim.bo[buf].indentexpr = "v:lua.vim.treesitter.indentexpr()"
+          end,
+        })
+    end
 }
